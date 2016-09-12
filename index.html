@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="semantic/dist/semantic.css">
+  <link rel="stylesheet" href="src/css/custom.css">
+</head>
+<body>
+  <div id="app">
+    <div class="ui secondary fixed menu">
+      <div class="ui container">
+        <span v-link="{path:'/'}" class="item">
+          <img src="src/img/ignlogo.png" alt="" />
+        </span>
+        <a v-link="{path:'/features'}" class="item">
+          Wiki
+        </a>
+        <a v-link="{path:'/blog'}" class="item">
+          Blog
+        </a>
+        <a v-link="{path:'/download'}" class="item">
+          Download
+        </a>
+        <div class="right menu">
+          <div class="item">
+            <div class="ui icon input">
+              <input type="text" placeholder="Search documentation..">
+              <i class="search link icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui container">
+      <router-view></router-view>
+    </div>
+  </div>
+
+  <!-- Templates -->
+
+  <template id="homepage-tpl">
+    <div>
+      <div class="mi cover flex justify align center">
+          <div>
+            <h1 class="mi title text-center fade-bottom">Love Beautiful OS?</h1>
+            <div class="ui grid flex justify align center fade-in">
+              <div class="seven wide column" style="z-index: 5; background-color: white;">
+                <img src="src/img/ING.png" alt="" class="ui small image"/>
+              </div>
+              <div class="nine wide column">
+                <h2>IGOS Nusantara 12 <span class="mi child">Beta</span></h2>
+                <p>
+                  Operating System based Linux from Indonesia
+                </p>
+                <div class="ui buttons">
+                  <button v-link="{path:'/download'}" class="ui blue basic button">Download</button>
+                  <button v-link="{path:'/download'}" class="ui blue basic button">v12</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="download-tpl">
+    <div>
+      <div class="mi cover flex justify align center">
+        <div class="mi box text-center fade-in">
+          <h1 class="mi title fade-bottom">IGOS Nusantara 12 Beta</h1>
+          <a href="http://repo.informatika.lipi.go.id/iso/12/beta2/IGN-2016-live32-kde-2016-08-05.iso" class="ui blue basic mi button">38bit</a>
+          <a href="http://repo.informatika.lipi.go.id/iso/12/beta2/IGN-2016-live64-kde-2016-08-05.iso" class="ui blue basic mi button">64bit</a>
+          <br>
+          <br>
+          <a href="#">or other version</a>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="blog-tpl">
+    <div>
+      <div class="mi container">
+        <h1 class="mi title fade-bottom">Blog</h1>
+        <div class="mi articles fade-in">
+          <articlelist v-for="artikel in articles"
+                :id="artikel.id"
+                :judul="artikel.title"
+                :terbit="artikel.created_at">
+              </articlelist>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="articles-tpl">
+    <div>
+      <a class="item flex justify between" v-link="{ path: '/article/' + artikel.id }">
+        <span>{{ judul }}</span>
+        <span class="release">{{ terbit }}</span>
+      </a>
+    </div>
+  </template>
+
+  <template id="article-tpl">
+    <div>
+      {{ articles.title}}
+    </div>
+  </template>
+
+
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="semantic/dist/semantic.js"></script>
+  <script src="node_modules/vue/dist/vue.js"></script>
+  <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+  <script src="node_modules/vue-router/dist/vue-router.js"></script>
+  <script src="src/js/app.js"></script>
+</body>
+</html>

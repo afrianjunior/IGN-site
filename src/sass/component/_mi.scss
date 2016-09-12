@@ -1,0 +1,56 @@
+/*
+*
+*  Mi for Layouter
+*
+*/
+
+.mi.container {
+  margin-top: 110px;
+}
+
+.mi.title {
+  font-size: 50px;
+  margin-bottom: 1.2em;
+}
+.mi.cover {
+  height: 100vh;
+}
+
+.mi.button {
+  padding: 1.3em;
+  margin: 0 .7em;
+  font-size: 30px;
+}
+
+.mi.child {
+  font-size: 10px;
+  position: relative;
+  top: -13px;
+}
+
+.mi.articles {
+  margin-bottom: 100px;
+}
+
+.mi.articles .item {
+  color: rgb(66, 66, 66);
+  cursor: pointer;
+  transition: all .3s ease;
+  padding: 1em 0;
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+}
+
+.mi.articles .item:hover .release {
+  font-weight: normal;
+}
+
+.mi.articles .item:hover {
+  padding: 1em 0 1em .3em;
+  font-weight: bold;
+}
+
+.mi.articles .item .release {
+  font-style: italic;
+  color: rgb(148, 148, 148);
+  font-size: 11px;
+}

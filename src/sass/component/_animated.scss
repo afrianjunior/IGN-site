@@ -1,0 +1,88 @@
+.fade-in {
+  animation: fadein 1s ease;
+}
+.fade-out {
+  animation: fadeout 1s ease;
+  opacity: 0;
+}
+
+.fade-left {
+  position: relative;
+  -webkit-animation: fadeleft 2s ease;
+          animation: fadeleft 2s ease;
+}
+
+.fade-right {
+  position: relative;
+  -webkit-animation: faderight 2s ease;
+          animation: faderight 2s ease;
+}
+
+.fade-top {
+  position: relative;
+  -webkit-animation: fadetop 2s ease;
+          animation: fadetop 2s ease;
+}
+
+.fade-bottom {
+  position: relative;
+  -webkit-animation: fadebottom 2s ease;
+          animation: fadebottom 2s ease;
+}
+
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadeleft {
+  0% {
+    opacity: 0;
+    right: -120px;
+  }
+  100% {
+    opacity: 1;
+    right: 0px;
+  }
+}
+@-webkit-keyframes fadetop {
+  0% {
+    opacity: 0;
+    bottom: -50px;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@-webkit-keyframes fadebottom {
+  0% {
+    opacity: 0;
+    bottom: 50px;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@-webkit-keyframes faderight {
+  0% {
+    opacity: 0;
+    right: 120px;
+  }
+  100% {
+    opacity: 1;
+    right: 0px;
+  }
+}
