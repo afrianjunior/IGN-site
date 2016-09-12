@@ -1,0 +1,7 @@
+@import "imported.css";
+@import "imported2.css";
+@import "foobar/imported3.css";
+
+p {
+  font-size: 2px;
+}

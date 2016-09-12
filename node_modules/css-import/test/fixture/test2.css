@@ -1,0 +1,6 @@
+@import "imported.css";
+@import "imported2.css";
+
+p {
+  font-size: 2px;
+}
