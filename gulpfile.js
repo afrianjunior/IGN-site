@@ -17,11 +17,6 @@ var PATHS = {
 };
 
 gulp.task('styles', function () {
-  var bootstrapSassStream = gulp.src(['node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss'])
-        .pipe(concat('bs.css'))
-        .pipe(sass({
-            errLogToConsole: true
-        }));
 
   var cssStream = gulp.src([
           'node_modules/cd-font-awesome/index.css',
@@ -33,13 +28,13 @@ gulp.task('styles', function () {
         ])
         .pipe(concat('all.css'));
 
-  var customSassStream = gulp.src(['themes/default/frontend/assets/css/style1.scss'])
+  var customSassStream = gulp.src(['src/sass/main.scss'])
         .pipe(concat('custom.css'))
         .pipe(sass());
 
   var mergedStream = merge(customSassStream, cssStream, bootstrapSassStream)
-        .pipe(order(['bs.css', 'all.css', 'custom.css']))
-        .pipe(concat('style-final.css'))
+        .pipe(order(['all.css', 'custom.css']))
+        .pipe(concat('style.css'))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
@@ -49,50 +44,7 @@ gulp.task('styles', function () {
           suffix: ".min",
           extname: ".css"
         }))
-        .pipe(gulp.dest('themes/default/frontend/assets/css/'));
-
-  return mergedStream;
-});
-
-
-gulp.task('styles-user', function () {
-  var bootstrapSassStream = gulp.src(['node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss'])
-        .pipe(concat('bs.css'))
-        .pipe(sass({
-            errLogToConsole: true
-        }));
-
-
-  var cssStream = gulp.src([
-          'node_modules/cd-font-awesome/index.css',
-          'node_modules/bootstrap-select/dist/css/bootstrap-select.css',
-          'node_modules/flickity/css/flickity.css',
-          'themes/default/frontend/dist/css/bootstrap-datetimepicker.min.css',
-          'themes/default/frontend/dist/css/sb-admin-2.css',
-          'themes/default/frontend/dist/css/AdminLTE.css',
-          // 'node_modules/icheck/skins/all.css',
-          'themes/default/frontend/assets/css/style-user.css'
-        ])
-        .pipe(concat('all.css'));
-
-
-  var customSassStream = gulp.src(['themes/default/frontend/assets/css/style1.scss'])
-        .pipe(concat('custom.css'))
-        .pipe(sass());
-
-  var mergedStream = merge(customSassStream, cssStream, bootstrapSassStream)
-        .pipe(order(['datetime.css', 'bs.css', 'all.css', 'custom.css']))
-        .pipe(concat('style-final-user.css'))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(minify())
-        .pipe(rename({
-          suffix: ".min",
-          extname: ".css"
-        }))
-        .pipe(gulp.dest('themes/default/frontend/assets/css/'));
+        .pipe(gulp.dest('dist/css'));
 
   return mergedStream;
 });
