@@ -11,7 +11,7 @@ Vue.use(VueRouter)
 // use resource for rest API
 Vue.use(VueResource)
 
-// Base URL
+// Base URL (* is not work)
 
 var BASE_URL = "http://resepku.eezhal92.com"
 
